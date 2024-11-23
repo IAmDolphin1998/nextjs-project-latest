@@ -1,0 +1,9 @@
+.card-media {
+  position: relative;
+  width: 300px;
+}
+
+.image {
+  padding-right: 12px;
+  object-fit: contain;
+}

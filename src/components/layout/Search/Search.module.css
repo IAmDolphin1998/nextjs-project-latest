@@ -1,0 +1,8 @@
+.filters {
+  border-radius: 6px;
+  background-color: #f2f2f2;
+  padding: 1.5rem;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}

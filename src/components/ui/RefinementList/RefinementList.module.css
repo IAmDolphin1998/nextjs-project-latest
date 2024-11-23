@@ -1,0 +1,10 @@
+.checkboxes {
+  width: 100%;
+  max-width: 360;
+  border-radius: 6px;
+  background-color: #f2f2f2;
+}
+
+.box-title {
+  font-size: 2.1rem;
+}
