@@ -4,12 +4,17 @@ steps:
       [
         'build',
         '--tag',
-        'gcr.io/$PROJECT_ID/$REPO_NAME:latest',
+        '$LOCATION-docker.pkg.dev/$PROJECT_ID/$REPO_NAME:latest',
         '--file',
         './docker/production/Dockerfile',
         '.',
       ]
     id: 'build-app'
+
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    args: ['app', 'deploy', '--quiet']
+    id: 'deploy-app'
+    entrypoint: 'gcloud'
 
 timeout: '12m'
 
@@ -17,4 +22,4 @@ options:
   logging: 'CLOUD_LOGGING_ONLY'
 
 images:
-  - 'gcr.io/$PROJECT_ID/$REPO_NAME:latest'
+  - '$LOCATION-docker.pkg.dev/$PROJECT_ID/$REPO_NAME:latest'
