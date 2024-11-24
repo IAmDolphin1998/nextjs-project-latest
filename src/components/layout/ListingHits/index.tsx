@@ -13,7 +13,7 @@ import {
 import { SellOutlined as SellOutlinedIcon } from '@mui/icons-material';
 
 import { getAbsoluteMediaUrl } from '@/utils';
-import FallbackImage from '@/public/images/placeholder.jpg';
+import FallbackImage from '@/images/placeholder.jpg';
 
 import { Snippet, useHits, UseHitsProps } from 'react-instantsearch';
 import { ImageWithFallback } from '@/components/common';

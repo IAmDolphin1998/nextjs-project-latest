@@ -4,7 +4,7 @@ import { CardMedia } from '@mui/material';
 
 import Image from 'next/image';
 import { getAbsoluteMediaUrl } from '@/utils';
-import FallbackImage from '@/public/images/placeholder.jpg';
+import FallbackImage from '@/images/placeholder.jpg';
 
 export default function ImageWithFallback(props: ImageProps) {
   const [error, setError] = useState(false);
