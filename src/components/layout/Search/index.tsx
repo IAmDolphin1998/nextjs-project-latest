@@ -22,11 +22,11 @@ export default function Search({ setAuthor }: SearchProps) {
       <Grid2 size={{ md: 3 }}>
         <Stack>
           <RefinementList
-            boxTitle="Filter Area"
+            boxTitle="Filter for Category"
             attribute="Area.Name"
             operator="and"
           />
-          <RefinementList boxTitle="Filter Tag" attribute="Tags.Name" />
+          <RefinementList boxTitle="Filter for Tag" attribute="Tags.Name" />
         </Stack>
       </Grid2>
       <Grid2 size={{ md: 9 }}>
@@ -48,12 +48,12 @@ export default function Search({ setAuthor }: SearchProps) {
               return items.map((item) => ({
                 ...item,
                 Date: item.Date
-                  ? new Date(item.Date).toLocaleDateString('it-IT', {
+                  ? new Date(item.Date).toLocaleDateString('en-GB', {
                       year: 'numeric',
                       month: 'long',
                       day: 'numeric',
                     })
-                  : new Date().toLocaleDateString('it-IT', {
+                  : new Date().toLocaleDateString('en-GB', {
                       year: 'numeric',
                       month: 'long',
                       day: 'numeric',

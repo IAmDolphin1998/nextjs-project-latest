@@ -24,7 +24,7 @@ export default function RefinementList({
 
   return (
     <div>
-      <Typography className={styles['box-title']} variant="h3" gutterBottom>
+      <Typography className={styles['box-title']} variant="h4" gutterBottom>
         {boxTitle}
       </Typography>
       <List className={styles.checkboxes}>
