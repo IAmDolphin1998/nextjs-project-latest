@@ -1,11 +1,11 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { InstantSearchNext } from 'react-instantsearch-nextjs';
 
 import { searchClient } from '@/utils';
 import { Search } from '../layout';
-import { Configure, useInstantSearch } from 'react-instantsearch';
+import { Configure } from 'react-instantsearch';
 
 export default function SearchInterface() {
   const [author, setAuthor] = useState('');

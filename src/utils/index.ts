@@ -17,7 +17,3 @@ if (
   searchClient = null;
 }
 export { searchClient };
-
-export function getAbsoluteMediaUrl(relativeUrl: string) {
-  return `${process.env.NEXT_PUBLIC_STRAPI_URL}${relativeUrl}`;
-}

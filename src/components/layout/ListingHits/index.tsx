@@ -12,8 +12,6 @@ import {
 } from '@mui/material';
 import { SellOutlined as SellOutlinedIcon } from '@mui/icons-material';
 
-import { getAbsoluteMediaUrl } from '@/utils';
-
 import { Snippet, useHits, UseHitsProps } from 'react-instantsearch';
 import { ImageWithFallback } from '@/components/common';
 
@@ -48,7 +46,7 @@ export default function ListingHits(props: UseHitsProps<DocumentProps>) {
                       alt={`${author.FirstName} ${author.LastName}`}
                       src={
                         author.Avatar
-                          ? getAbsoluteMediaUrl(author.Avatar.url)
+                          ? author.Avatar.url
                           : '/images/placeholder.jpg'
                       }
                     />
