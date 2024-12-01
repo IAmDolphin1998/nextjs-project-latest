@@ -53,11 +53,7 @@ export default function Search({ setAuthor }: SearchProps) {
                       month: 'long',
                       day: 'numeric',
                     })
-                  : new Date().toLocaleDateString('en-GB', {
-                      year: 'numeric',
-                      month: 'long',
-                      day: 'numeric',
-                    }),
+                  : undefined,
               }));
             }}
           />
