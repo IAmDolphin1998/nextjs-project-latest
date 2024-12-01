@@ -1,8 +1,11 @@
 # Stage 0: Set Node.js environment
 FROM node:20-alpine AS base
 
+ARG _ENV=development
+
 # Stage 1: Install dependencies
 FROM base AS deps
+
 RUN apk add --no-cache libc6-compat
 WORKDIR /app
 
@@ -11,21 +14,23 @@ RUN npm ci
 
 # Stage 2: Build the Next.js application
 FROM base AS builder
+
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
-COPY .env.production ./
+COPY .env.${_ENV} ./
 
-ENV NEXT_TELEMETRY_DISABLED 1
+ENV NEXT_TELEMETRY_DISABLED=1
 
 RUN npm run build
 
 # Stage 3: Copy all files and run Next.js
 FROM base AS runner
+
 WORKDIR /app
 
-ENV NODE_ENV production
-ENV NEXT_TELEMETRY_DISABLED 1
+ENV NODE_ENV=${_ENV}
+ENV NEXT_TELEMETRY_DISABLED=1
 
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
@@ -39,6 +44,6 @@ USER nextjs
 
 EXPOSE 3000
 
-ENV PORT 3000
+ENV PORT=3000
 
-CMD ["npm", "start"]
+CMD ["sh", "-c", "if [ \"$NODE_ENV\" = \"development\" ]; then npm run dev; else npm run start; fi"]

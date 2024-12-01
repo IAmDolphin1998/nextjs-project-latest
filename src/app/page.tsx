@@ -1,7 +1,7 @@
 import React from 'react';
 import { Typography, Link } from '@mui/material';
 
-export default function RootPage() {
+export default function Home() {
   return (
     <div>
       <Typography variant="h1" gutterBottom>

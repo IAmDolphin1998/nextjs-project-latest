@@ -13,7 +13,6 @@ import {
 import { SellOutlined as SellOutlinedIcon } from '@mui/icons-material';
 
 import { getAbsoluteMediaUrl } from '@/utils';
-import FallbackImage from '@/images/placeholder.jpg';
 
 import { Snippet, useHits, UseHitsProps } from 'react-instantsearch';
 import { ImageWithFallback } from '@/components/common';
@@ -50,7 +49,7 @@ export default function ListingHits(props: UseHitsProps<DocumentProps>) {
                       src={
                         author.Avatar
                           ? getAbsoluteMediaUrl(author.Avatar.url)
-                          : FallbackImage.src
+                          : '/images/placeholder.jpg'
                       }
                     />
                   ))}

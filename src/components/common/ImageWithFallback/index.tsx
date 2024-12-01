@@ -4,7 +4,6 @@ import { CardMedia } from '@mui/material';
 
 import Image from 'next/image';
 import { getAbsoluteMediaUrl } from '@/utils';
-import FallbackImage from '@/images/placeholder.jpg';
 
 export default function ImageWithFallback(props: ImageProps) {
   const [error, setError] = useState(false);
@@ -18,7 +17,7 @@ export default function ImageWithFallback(props: ImageProps) {
       <Image
         className={styles.image}
         alt={props.alternativeText ?? 'No Alternative Text'}
-        src={error ? FallbackImage.src : getAbsoluteMediaUrl(props.url)}
+        src={error ? '/images/placeholder.jpg' : getAbsoluteMediaUrl(props.url)}
         fill={true}
         onError={(event) => setError(true)}
       />

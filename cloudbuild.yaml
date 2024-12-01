@@ -3,10 +3,10 @@ steps:
     args:
       [
         'build',
+        '--build-arg',
+        '_ENV=$_ENV',
         '--tag',
         'us.gcr.io/$PROJECT_ID/$REPO_NAME:latest',
-        '--file',
-        './docker/production/Dockerfile',
         '.',
       ]
     id: 'build-app'
@@ -20,6 +20,9 @@ timeout: '12m'
 
 options:
   logging: 'CLOUD_LOGGING_ONLY'
+
+substitutions:
+  _ENV: 'production'
 
 images:
   - 'us.gcr.io/$PROJECT_ID/$REPO_NAME:latest'
