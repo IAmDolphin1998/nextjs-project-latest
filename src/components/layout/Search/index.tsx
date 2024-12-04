@@ -5,12 +5,11 @@ import styles from './Search.module.css';
 import {
   SearchResultsBox,
   FiltersResultsBox,
-  MuiPagination,
   RefinementList,
 } from '@/components/ui';
 import { Box, Grid2, Stack } from '@mui/material';
 import ListingHits from '../ListingHits';
-import { Stats } from 'react-instantsearch';
+import { Pagination, Stats } from 'react-instantsearch';
 
 type SearchProps = {
   setAuthor: React.Dispatch<React.SetStateAction<string>>;
@@ -57,7 +56,13 @@ export default function Search({ setAuthor }: SearchProps) {
               }));
             }}
           />
-          <MuiPagination />
+          <Pagination
+            classNames={{
+              list: styles.pagination,
+              selectedItem: styles['pagination-active'],
+              disabledItem: styles['pagination-disabled'],
+            }}
+          />
         </Stack>
       </Grid2>
     </>
